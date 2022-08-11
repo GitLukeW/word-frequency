@@ -25,11 +25,10 @@ def print_word_freq(file):
         dictionary.items(), key=lambda item: item[1], reverse=True)
 
     for allKeys in sorted_counts:
-        print(allKeys[0], "| ", end="")
-        print(end="")
+        print(f'{allKeys[0]:>15} | ', end="")
+        # print(end="")
         print(allKeys[1], end=" ")
-        print((allKeys[1] * "*"), end=" ")
-        print()
+        print(allKeys[1] * "*")
 
 
 if __name__ == "__main__":

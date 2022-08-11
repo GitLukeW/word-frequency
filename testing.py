@@ -217,7 +217,4 @@ for allKeys in dictionary:
     print(dictionary[allKeys], end=" ")
     print()
 
-    # def delete_words(stop_word):
-    #     for word in stop_word:
-    #         if word in STOP_WORDS:
-    #             stop_word.remove(word)
+
