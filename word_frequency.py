@@ -21,11 +21,14 @@ def print_word_freq(file):
             dictionary[words] = dictionary[words] + 1
         else:
             dictionary[words] = 1
+    sorted_counts = sorted(
+        dictionary.items(), key=lambda item: item[1], reverse=True)
 
-    for allKeys in dictionary:
-        print("Frequency of", allKeys, end="")
-        print(": ", end="")
-        print(dictionary[allKeys], end=" ")
+    for allKeys in sorted_counts:
+        print(allKeys[0], "| ", end="")
+        print(end="")
+        print(allKeys[1], end=" ")
+        print((allKeys[1] * "*"), end=" ")
         print()
 
 
