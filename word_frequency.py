@@ -1,13 +1,32 @@
+import re
 STOP_WORDS = [
-    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
-    'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
-    'will', 'with'
+    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has',
+    'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
+    'were', 'will', 'with'
 ]
 
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
-    pass
+
+    dictionary = dict()
+
+    filepath = open(file, "r")
+
+    words = re.sub(r'[^\w\s]', '', filepath.read()).lower().split()
+    deleted_stop_words = [x for x in words if x not in STOP_WORDS]
+
+    for words in deleted_stop_words:
+        if words in dictionary:
+            dictionary[words] = dictionary[words] + 1
+        else:
+            dictionary[words] = 1
+
+    for allKeys in dictionary:
+        print("Frequency of", allKeys, end="")
+        print(": ", end="")
+        print(dictionary[allKeys], end=" ")
+        print()
 
 
 if __name__ == "__main__":
